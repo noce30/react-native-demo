@@ -1,0 +1,3 @@
+rootProject.name = 'AmazonPrice'
+
+include ':app'
