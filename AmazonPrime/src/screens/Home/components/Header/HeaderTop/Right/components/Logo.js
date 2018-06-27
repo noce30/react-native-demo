@@ -7,8 +7,6 @@ export default class Logo extends Component {
       <View>
         <Image
           style={{
-            width: 150,
-            height: 50,
             position: "absolute",
             left: 40,
             top: -40

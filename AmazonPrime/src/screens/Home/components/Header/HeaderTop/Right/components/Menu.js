@@ -6,7 +6,7 @@ export default class Menu extends Component {
   render() {
     return (
       <View>
-        <Icon name="bars" style={{ fontSize: 40, color: "white" }} />
+        <Icon name="bars" style={{ fontSize: 30, color: "white" }} />
       </View>
     );
   }
