@@ -12,7 +12,7 @@ export default class IconsLeft extends Component {
           allowFontScaling={true}
         />
         <Icon
-          name="circle"
+          name="circle-o"
           style={{ fontSize: 30, color: "white" }}
           allowFontScaling={true}
         />

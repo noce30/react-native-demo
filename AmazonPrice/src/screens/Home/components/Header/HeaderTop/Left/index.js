@@ -7,7 +7,7 @@ export default class Left extends Component {
     return (
       <View>
         <Text> 
-        <Icon name='bell' style={{ fontSize: 40, color: 'white'}} />
+        <Icon name='bell-o' style={{ fontSize: 40, color: 'white'}} />
         <Icon name='shopping-cart' style={{ fontSize: 40, color: 'white'}} />
         </Text>
       </View>
