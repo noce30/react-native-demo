@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import React from "react";
 import Header from "./components/Header";
 import DeliverInfor from "../../components/DeliverInfor";
@@ -12,18 +12,20 @@ const Home = () => {
       <View style={styles.header}>
         <Header />
       </View>
-      <View style={styles.deliverInfor}>
-        <DeliverInfor />
-      </View>
-      <View style={styles.advertising}>
-        <Advertising />
-      </View>
-      <View>
-        <SmallProduct/>
-      </View>
-      <View style={styles.product}>
-        <Product/>
-      </View>
+      <ScrollView>
+        <View style={styles.deliverInfor}>
+          <DeliverInfor />
+        </View>
+        <View style={styles.advertising}>
+          <Advertising />
+        </View>
+        <View>
+          <SmallProduct />
+        </View>
+        <View style={styles.product}>
+          <Product />
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -37,9 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: "column"
   },
   header: {
-    height: 125
+    height: 115
   },
-  product: {
-
-  }
+  product: {}
 });

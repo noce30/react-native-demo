@@ -7,9 +7,11 @@ export default class Logo extends Component {
       <View>
         <Image
           style={{
+            height: 40,
+            width: 130,
             position: "absolute",
             left: 40,
-            top: -40
+            top: -30
           }}
           source={require("../../../../../../../assets/images/logo.png")}
         />
