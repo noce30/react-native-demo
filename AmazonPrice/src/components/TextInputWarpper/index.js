@@ -7,9 +7,9 @@ export default class TextInputWrapper extends Component {
     return (
       <View style={styles.container}>
         <Icon name="search" style={{ fontSize: 30, color: "#00A4B4" }} />
-        <View style={{ width: "100%", marginTop:7 }}>
+        <View style={{ width: "100%", marginTop: 7 }}>
           <TextInput
-            underlineColorAndroid="transparent"            
+            underlineColorAndroid="transparent"
             placeholder="What are you looking for?"
           />
         </View>

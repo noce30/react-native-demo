@@ -13,7 +13,7 @@ export default class Logo extends Component {
             left: 40,
             top: -40
           }}
-          source={require("../../../../../../assets/images/logo.png")}
+          source={require("../../../../../../../assets/images/logo.png")}
         />
       </View>
     );

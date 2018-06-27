@@ -5,10 +5,8 @@
  */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
-import Header from "./src/screens/Home/Header";
-import DeliverInfor from "./src/components/DeliverInfor";
-import Advertising from "./src/screens/Home/components/Advertising";
+import { Platform, StyleSheet, View } from "react-native";
+import Home from "./src/screens/Home";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
@@ -21,14 +19,15 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
+        <Home />
+        {/* <Header />
         <View style={styles.welcome}>
           <DeliverInfor />
         </View>
         <View style={styles.instructions}>
           <Advertising />
         </View>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.instructions}>{instructions}</Text> */}
       </View>
     );
   }

@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
     backgroundColor: "#00A4B4",
     width: _screenWidth,
     flex: 1,
-    flexDirection: "column"
+    flexDirection: "column",
+    height: 100
   },
   headerTop: {
     flexDirection: "row",

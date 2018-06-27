@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {  View} from 'react-native';
-import TextInputWrapper from '../../../../../components/TextInputWarpper';
+import TextInputWrapper from '../../../../../../components/TextInputWarpper';
 
 export default class Search extends Component {
   render() {
