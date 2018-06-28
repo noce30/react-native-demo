@@ -5,12 +5,15 @@
  */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, View } from "react-native";
-import Home from "./src/screens/Home";
 import StackNavigator from "./src/navigator/StackNavigator";
-
+import store from "./src/store";
+import { Provider } from "react-redux";
 export default class App extends Component {
   render() {
-    return <StackNavigator />;
+    return (
+      <Provider store={store}>
+        <StackNavigator />
+      </Provider>
+    );
   }
 }
