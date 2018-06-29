@@ -1,5 +1,5 @@
 const initialState = {
-  username: "ngocuit92@gmail.com",
+  userName: "ngocuit92@gmail.com",
   password: "123456"
 };
 

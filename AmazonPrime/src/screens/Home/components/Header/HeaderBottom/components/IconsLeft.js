@@ -5,17 +5,14 @@ import Icon from "react-native-fa-icons";
 export default class IconsLeft extends Component {
   render() {
     return (
-      <View style={{flexDirection: 'row',}}>
+      <View
+        style={{ flex: 1, flexDirection: "row", justifyContent: "flex-end" }}
+      >
         <Icon
           name="camera"
-          style={{ fontSize: 30, color: "white", marginRight: 10, }}
-          allowFontScaling={true}
+          style={{ fontSize: 30, color: "white", marginRight: 10 }}
         />
-        <Icon
-          name="circle-o"
-          style={{ fontSize: 30, color: "white" }}
-          allowFontScaling={true}
-        />
+        <Icon name="circle-o" style={{ fontSize: 30, color: "white" }} />
       </View>
     );
   }

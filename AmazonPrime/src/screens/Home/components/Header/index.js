@@ -9,7 +9,7 @@ export default class Header extends Component {
     return (
       <View style ={styles.container}>
         <HeaderTop/>
-        <HeaderBottom/>
+        <HeaderBottom onQueryItems={this.props.onQueryItems}/>
       </View>
     );
   }

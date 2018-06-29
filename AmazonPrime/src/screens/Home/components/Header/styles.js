@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
   headerBottom: {
     marginTop: 20,
     flexDirection: "row",
-    justifyContent: "space-between",
     marginLeft: 5,
     marginRight: 5
   }
