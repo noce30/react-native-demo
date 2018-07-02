@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, View,Text } from "react-native";
 import ListItem from "./component/ListItem";
-import { data } from "./MockData";
 
 export default class Lists extends Component {
   render() {
+    console.log(this.props.data);
     return (
       <View>
         <FlatList
@@ -12,11 +12,11 @@ export default class Lists extends Component {
           renderItem={({ item }) => (
             <ListItem
               isRecentSearch={item.isRecentSearch}
-              text={item.text}
+              text={item.ShortDescription}
               subText={item.subText}
             />
           )}
-          keyExtractor={item => item.key}
+          keyExtractor={(x,i) => i.toString()}
         />
       </View>
     );

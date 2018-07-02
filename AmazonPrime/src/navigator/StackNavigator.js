@@ -14,7 +14,7 @@ const RootNavigator = createStackNavigator(
     ForgotPassword: ForgotPassword
   },
   {
-    initialRouteName: "Wellcome",
+    initialRouteName: "Home",
     headerMode: "none"
   }
 );

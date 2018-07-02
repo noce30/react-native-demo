@@ -6,26 +6,52 @@ import Advertising from "./components/Advertising";
 import SmallProduct from "./components/SmallProduct";
 import Product from "./components/Product";
 import Lists from "../../components/Lists";
-import { data } from "./data/ListItems";
+import { getProducts } from "../../api/products";
 
 class Home extends React.Component {
-  state = { isExistItems: false, listItems: [], query: "" };
+  state = { isExistItems: false, listItems: [], keyword: "", products: [] };
 
-  onQueryItems(query) {
-    this.setState({ query: query });
+  payload = {
+    pageSize: 10,
+    pageIndex: 0,
+    keyword: "",
+    categoryId: null,
+    locationIds: [],
+    tagNames: ["specials"],
+    dynamicPropertyFilters: {
+      tags: "specials",
+      searchKeyword: ""
+    },
+    searchByLocations: false
+  };
+
+  onQueryItems(keyword) {
+    this.setState({ keyword: keyword });
+    this.searchItems.bind(this)(keyword);
   }
 
-  searchItems(query) {
-    if (query === "") {
+  searchItems(keyword) {
+    if (keyword === "") {
       return [];
     }
 
-    const { listItems } = this.state;
-    return listItems.filter(item => item.text.toLowerCase().search(query.toLowerCase()) >= 0);
+    this.payload = { ...this.payload, keyword: keyword };
+    getProducts(this.payload, data => {
+      this.setState({ products: data.Data });
+    });
+
+    const { products } = this.state;
+
+    return products.filter(
+      item =>
+        item.ShortDescription.toLowerCase().search(keyword.toLowerCase()) >= 0
+    );
   }
 
   componentDidMount() {
-    this.setState({ listItems: data });
+    getProducts(this.payload, data => {
+      this.setState({ products: data.Data });
+    });
   }
 
   renderElement(listItems) {
@@ -42,22 +68,30 @@ class Home extends React.Component {
           <SmallProduct />
         </View>
         <View style={styles.product}>
-          <Product />
+          {this.state.products &&
+            this.state.products.map(e => (
+              <Product
+                key={e.Id}
+                imageUrl={e.Images[0].Url}
+                productName={e.ShortDescription}
+                categoryName={e.Category.Name}
+              />
+            ))}
         </View>
       </View>
     );
   }
 
   render() {
-    const { query } = this.state;
-    const listItems = this.searchItems(query);
-
+    const products = this.state.keyword !== "" ? this.state.products : [];
     return (
       <View style={styles.container}>
         <View style={styles.header}>
           <Header onQueryItems={this.onQueryItems.bind(this)} />
         </View>
-        <ScrollView>{this.renderElement(listItems)}</ScrollView>
+        <ScrollView removeClippedSubviews={true}>
+          {this.renderElement(products)}
+        </ScrollView>
       </View>
     );
   }
@@ -74,5 +108,7 @@ const styles = StyleSheet.create({
   header: {
     height: 115
   },
-  product: {}
+  product: {
+    backgroundColor: "#ffff"
+  }
 });
