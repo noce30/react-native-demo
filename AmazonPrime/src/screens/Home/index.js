@@ -1,5 +1,5 @@
 import { View, StyleSheet, ScrollView } from "react-native";
-import React from "react";
+import React, { Component } from "react";
 import Header from "./components/Header";
 import DeliverInfor from "../../components/DeliverInfor";
 import Advertising from "./components/Advertising";
@@ -7,8 +7,12 @@ import SmallProduct from "./components/SmallProduct";
 import Product from "./components/Product";
 import Lists from "../../components/Lists";
 import { getProducts } from "../../api/products";
+import ProductDetail from "../Product/ProductDetail";
 
-class Home extends React.Component {
+class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = { isExistItems: false, listItems: [], keyword: "", products: [] };
 
   payload = {
@@ -46,6 +50,10 @@ class Home extends React.Component {
       item =>
         item.ShortDescription.toLowerCase().search(keyword.toLowerCase()) >= 0
     );
+  }
+
+  onClickMenuIcon() {
+    this.props.navigation.openDrawer();
   }
 
   componentDidMount() {
@@ -87,11 +95,15 @@ class Home extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Header onQueryItems={this.onQueryItems.bind(this)} />
+          <Header
+            onQueryItems={this.onQueryItems.bind(this)}
+            openMenu={this.onClickMenuIcon.bind(this)}
+          />
         </View>
-        <ScrollView removeClippedSubviews={true}>
+        <ProductDetail />
+        {/* <ScrollView removeClippedSubviews={true}>
           {this.renderElement(products)}
-        </ScrollView>
+        </ScrollView> */}
       </View>
     );
   }

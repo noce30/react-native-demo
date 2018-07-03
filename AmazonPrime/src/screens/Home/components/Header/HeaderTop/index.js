@@ -8,7 +8,7 @@ export default class HeaderTop extends Component {
   render() {
     return (
       <View style={styles.headerTop}>
-        <Right/>
+        <Right openMenu={this.props.openMenu}/>
         <Left/>
       </View>
     );

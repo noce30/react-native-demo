@@ -1,17 +1,22 @@
-import { createStackNavigator } from "react-navigation";
-import HomeScreen from "../screens/Home";
+import { StackNavigator } from "react-navigation";
+import { SideMenu } from "./DrawerNavigator";
 import LoginScreen from "../screens/Login";
 import WellcomeScreen from "../screens/Wellcome";
 import SignUp from "../screens/SignUp";
 import ForgotPassword from "../screens/ForgotPassword";
 
-const RootNavigator = createStackNavigator(
+const RootNavigator = StackNavigator(
   {
-    Home: HomeScreen,
-    Login: LoginScreen,
-    Wellcome: WellcomeScreen,
-    SignUp: SignUp,
-    ForgotPassword: ForgotPassword
+    Home: {
+      screen: SideMenu,
+      navigationOptions: {
+        header: null
+      }
+    },
+    // Login: { screen: LoginScreen },
+    // Wellcome: { screen: WellcomeScreen },
+    // SignUp: { screen: SignUp },
+    // ForgotPassword: { screen: ForgotPassword }
   },
   {
     initialRouteName: "Home",
